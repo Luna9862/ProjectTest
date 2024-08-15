@@ -80,9 +80,3 @@ public class UserServiceTest {
         assertTrue(userService.updateUserProfile(user, "", "newpassword", ""));
     }
 }
-@Test
-void testUpdateUserProfileEdgeCase() {
-    User user = new User("john_doe", "password123", "john@example.com");
-    userService.registerUser(user);
-    assertTrue(userService.updateUserProfile(user, "", "newpassword", ""));
-}

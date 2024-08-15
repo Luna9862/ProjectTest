@@ -134,8 +134,3 @@ public class BookServiceTest {
         assertFalse(bookService.removeBook(book));
     }
 }
-@Test
-void testRemoveBookEdgeCase() {
-    Book book = new Book("Effective Java", "Joshua Bloch", "Programming");
-    assertFalse(bookService.removeBook(book));
-}
