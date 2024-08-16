@@ -87,5 +87,4 @@ public class UserServiceTest {
         assertFalse(result, "Updating to an existing username should fail.");
     }
 
-    // Note: Removing the testUpdateUserProfile_EmptyNewUsername since the service does not handle empty new usernames.
 }

@@ -50,6 +50,7 @@ public class BookServiceTest {
 
     @Test
     public void testPurchaseBook_Success() {
+        Mockito.when(mockBook.getTitle()).thenReturn("Java Programming");
         bookService.addBook(mockBook);
         boolean result = bookService.purchaseBook(mockUser, mockBook);
         assertTrue(result, "The book should be purchased successfully.");
@@ -59,6 +60,12 @@ public class BookServiceTest {
     public void testPurchaseBook_BookNotInDatabase() {
         boolean result = bookService.purchaseBook(mockUser, mockBook);
         assertFalse(result, "Purchasing a book not in the database should fail.");
+    }
+
+    @Test
+    public void testPurchaseBook_NullBook() {
+        boolean result = bookService.purchaseBook(mockUser, null);
+        assertFalse(result, "Purchasing a null book should fail.");
     }
 
     // Test for addBookReview() method
@@ -90,12 +97,14 @@ public class BookServiceTest {
 
     @Test
     public void testAddBook_Success() {
+        Mockito.when(mockBook.getTitle()).thenReturn("Java Programming");
         boolean result = bookService.addBook(mockBook);
         assertTrue(result, "The book should be added successfully.");
     }
 
     @Test
     public void testAddBook_BookAlreadyExists() {
+        Mockito.when(mockBook.getTitle()).thenReturn("Java Programming");
         bookService.addBook(mockBook);
         boolean result = bookService.addBook(mockBook);
         assertFalse(result, "Adding the same book again should fail.");
@@ -111,6 +120,7 @@ public class BookServiceTest {
 
     @Test
     public void testRemoveBook_Success() {
+        Mockito.when(mockBook.getTitle()).thenReturn("Java Programming");
         bookService.addBook(mockBook);
         boolean result = bookService.removeBook(mockBook);
         assertTrue(result, "The book should be removed successfully.");
